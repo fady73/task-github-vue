@@ -1,13 +1,14 @@
 <template>
-
+<div class="container">
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-4 col-md-4">
        <Users />     
     </div>
 
-    <div class="col-md-8">
+    <div class="col-8 col-md-8">
       <Details />  
     </div>
+</div>
 </div>
 
 </template>
@@ -17,6 +18,7 @@ import Users from '../users/users.vue';
 import Details from '../details/details.vue';
 
 export default {
+
   name: 'Alluser',
   components: {
     Users,
