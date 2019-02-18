@@ -1,12 +1,26 @@
 <template>
- <div>sdhasjdh</div>
+
+<div class="row">
+    <div class="col-md-4">
+       <Users />     
+    </div>
+
+    <div class="col-md-8">
+      <Details />  
+    </div>
+</div>
+
 </template>
 
 <script>
+import Users from '../users/users.vue';
+import Details from '../details/details.vue';
+
 export default {
   name: 'Alluser',
-  props: {
-    msg: String
+  components: {
+    Users,
+    Details
   }
 }
 </script>
