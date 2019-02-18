@@ -2,11 +2,17 @@
 <div class="container">
 <div class="row">
     <div class="col-4 col-md-4">
-       <Users />     
+       <table class=" table">
+      <tbody>
+        <tr v-for="user in users" :key="user.id">
+          <td @click="updateSelected(user )" style="cursor: pointer;">{{ user.login }}</td>
+        </tr>
+      </tbody>
+    </table>  
     </div>
 
     <div class="col-8 col-md-8">
-      <Details />  
+      <Details v-bind:Detial_user="info"/>  
     </div>
 </div>
 </div>
@@ -14,18 +20,39 @@
 </template>
 
 <script>
-import Users from '../users/users.vue';
 import Details from '../details/details.vue';
+import { mapState } from 'vuex'
 
 export default {
 
   name: 'Alluser',
   components: {
-    Users,
     Details
-  }
+  },
+  data(){
+        return{
+            info:'Office'
+        }
+    },
+  mounted () {
+
+    this.$store.dispatch('loadUsers')
+
+  },
+  computed: mapState([
+    'users',
+  ]),
+  methods: {
+
+    updateSelected (selectedItem) {
+         this.info=selectedItem;
+     }
+   
+   }
 }
+
 </script>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
