@@ -31,7 +31,10 @@ export default {
   },
   data(){
         return{
-            info:''
+            info:{
+            type: Object
+        }
+  
         }
     },
   mounted () {

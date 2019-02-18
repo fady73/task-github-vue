@@ -28,7 +28,9 @@ import axios from 'axios'
 export default {
   name: 'Details',
   props: {
-    Detial_user: String
+  Detial_user: {
+            type: Object
+        }
   },
   data(){
          return{ results: []}
